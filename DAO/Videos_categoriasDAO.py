@@ -6,20 +6,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from conexion_bd.conexionBD import obtener_conexion
 
 
-def findAllVideos_categorias():
-    conn = obtener_conexion()
-    c = conn.cursor()
-    query = "SELECT * FROM VIDEOS_CATEGORIAS"
-    c.execute(query)
-    videos_categorias = c.fetchall()
-
-    print("\n=== LISTA DE VIDEOS_CATEGORIAS ===")
-    for vc in videos_categorias:
-        print(vc)
-
-    conn.close()
-
-
 def vincularVideoCategoria(id_video, id_categoria):
     conn = obtener_conexion()
     c = conn.cursor()

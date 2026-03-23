@@ -122,14 +122,14 @@ def crear_tablas():
 
             # IDIOMAS
             """CREATE TABLE IF NOT EXISTS IDIOMAS (
-                id_idioma INT PRIMARY KEY,
+                id_idioma VARCHAR(10) PRIMARY KEY,
                 nombre VARCHAR(255)
             )""",
 
             # VIDEOS_IDIOMAS
             """CREATE TABLE IF NOT EXISTS VIDEOS_IDIOMAS (
                 id_video VARCHAR(50),
-                id_idioma INT,
+                id_idioma VARCHAR(10),
                 tipo VARCHAR(50),
                 FOREIGN KEY (id_video) REFERENCES VIDEOS(isan),
                 FOREIGN KEY (id_idioma) REFERENCES IDIOMAS(id_idioma)
