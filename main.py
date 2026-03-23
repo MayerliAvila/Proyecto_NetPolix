@@ -77,7 +77,7 @@ def menu():
             menu_catalogo()
 
         elif opcion == "5":
-            menu_videos()  # puedes cambiar luego
+            print("⚠️ Módulo Ventas / Carrito en construcción...")
 
         elif opcion == "6":
             print("👋 Saliendo del sistema...")
