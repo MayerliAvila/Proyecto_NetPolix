@@ -108,14 +108,14 @@ def crear_tablas():
 
             # CATEGORIAS
             """CREATE TABLE IF NOT EXISTS CATEGORIAS (
-                id_categoria INT PRIMARY KEY,
+                id_categoria VARCHAR(10) PRIMARY KEY,
                 nombre VARCHAR(255)
             )""",
 
             # VIDEOS_CATEGORIAS
             """CREATE TABLE IF NOT EXISTS VIDEOS_CATEGORIAS (
                 id_video VARCHAR(50),
-                id_categoria INT,
+                id_categoria VARCHAR(10),
                 FOREIGN KEY (id_video) REFERENCES VIDEOS(isan),
                 FOREIGN KEY (id_categoria) REFERENCES CATEGORIAS(id_categoria)
             )""",

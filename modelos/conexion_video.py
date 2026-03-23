@@ -16,7 +16,8 @@ def menu_videos():
         print("2. Crear video")
         print("3. Editar video")
         print("4. Eliminar video")
-        print("5. Volver al menú principal")
+        print("5. Buscar por nombre el video")
+        print("6. Volver al menú principal")
         
         opcion = input("Seleccione una opción: ").strip()
         if opcion == "1":
@@ -29,8 +30,7 @@ def menu_videos():
             # Verificar si ya existe
             if v.buscarVideoPorISAN(ISAN):
                 print("❌ Ya existe un video con ese ISAN")
-                conn.close()
-                return
+                continue  
 
             titulo_original = input("Digite el titulo original del video: ").strip()
             anio_produccion = input("Digite el año de producción del video: ").strip()
@@ -52,11 +52,11 @@ def menu_videos():
             v.crearVideo(ISAN, titulo_original, anio_produccion, duracion_min, tipo_clasificacion, id_serie)
         elif opcion == "3":
             ISAN = input("Digite el ISAN del video a editar: ").strip()
-            titulo_originalU = input("Digite el titulo original de video"). sprit()
-            anio_produccionU = input("Digite el año de producción del video").strip()
-            duracion_minU = input("Digite la duración en minutos del video").strip()
+            titulo_originalU = input("Digite el titulo original de video: "). strip()
+            anio_produccionU = input("Digite el año de producción del video: ").strip()
+            duracion_minU = input("Digite la duración en minutos del video: ").strip()
             print("\n📋 Clasificaciones disponibles:")
-            c.findAllClasificaciones()
+            c.findAllClasificacion()
             tipo_clasificacionU = input("Seleccione el tipo de clasificacion: ").strip()
             serie_opcionU = input("¿Pertenece a una serie? (Si/No): ").strip().lower()
             if serie_opcionU == "si":
@@ -67,6 +67,9 @@ def menu_videos():
             ISAN = input("Digite el ISAN del video a eliminar: ").strip()
             v.eliminarVideo(ISAN)
         elif opcion == "5":
+            nombre = input("Digite el nombre del video a buscar: ").strip()
+            v.buscarVideoPorNombre(nombre)
+        elif opcion == "6":
             print("Saliendo del menú de videos...")
             break
         else:
