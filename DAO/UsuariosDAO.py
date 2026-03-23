@@ -10,7 +10,6 @@ from conexion_bd.conexionBD import obtener_conexion
 # DAO de Usuarios
 # ==============================
 
-# --- FUNCIONES PRINCIPALES ---
 
 def findAllUsuarios():
     """

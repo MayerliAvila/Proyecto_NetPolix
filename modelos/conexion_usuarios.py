@@ -19,7 +19,7 @@ def menu_usuarios():
         print("3. Editar usuario")
         print("4. Eliminar usuario")
         print("5. Iniciar sesión")
-        print("6. Salir")
+        print("6.  Volver al menú principal")
 
         opcion = input("Seleccione una opción: ").strip()
 
@@ -135,7 +135,7 @@ def menu_usuarios():
 
         # ------------------- SALIR -------------------
         elif opcion == "6":
-            print("Saliendo del menú de usuarios...")
+            print("Saliendo del menú de principal...")
             break
 
         else:
