@@ -37,7 +37,7 @@ def menu_videos():
             duracion_min = input("Digite la duración en minutos del video: ").strip()
 
             # Mostrar clasificaciones
-            print("\n📋 Clasificaciones disponibles:")
+            print("\nClasificaciones disponibles:")
             c.findAllClasificacion()
 
             tipo_clasificacion = input("Seleccione el tipo de clasificacion: ").strip()
