@@ -9,7 +9,7 @@ def crear_tablas():
 
             # SERIES
             """CREATE TABLE IF NOT EXISTS SERIES (
-                id_serie INT PRIMARY KEY,
+                id_serie VARCHAR (10) PRIMARY KEY,
                 titulo VARCHAR(255),
                 sinopsis TEXT,
                 temporada INT
@@ -45,14 +45,14 @@ def crear_tablas():
                 anio_produccion INT,
                 duracion_min INT,
                 id_clasificacion VARCHAR(50),
-                id_serie INT,
+                id_serie VARCHAR(10),
                 FOREIGN KEY (id_clasificacion) REFERENCES CLASIFICACIONES(tipo),
                 FOREIGN KEY (id_serie) REFERENCES SERIES(id_serie)
             )""",
 
             # ORDENES
             """CREATE TABLE IF NOT EXISTS ORDENES (
-                id_orden INT PRIMARY KEY,
+                id_orden VARCHAR (10) PRIMARY KEY,
                 id_usuario VARCHAR(50),
                 fecha_creacion DATETIME,
                 estado VARCHAR(50),
@@ -63,7 +63,7 @@ def crear_tablas():
             # ORDENES_DETALLES
             """CREATE TABLE IF NOT EXISTS ORDENES_DETALLES (
                 id_detalle INT PRIMARY KEY,
-                id_orden INT,
+                id_orden VARCHAR (10),
                 id_video VARCHAR(50),
                 tipo_transaccion VARCHAR(50),
                 precio_unitario DECIMAL(10,2),
@@ -85,22 +85,22 @@ def crear_tablas():
 
             # PARTICIPANTES
             """CREATE TABLE IF NOT EXISTS PARTICIPANTES (
-                id_participante INT PRIMARY KEY,
+                id_participante VARCHAR(10) PRIMARY KEY,
                 nombre VARCHAR(255),
                 fecha_nacimiento DATE
             )""",
 
             # ROLES
             """CREATE TABLE IF NOT EXISTS ROLES (
-                id_rol INT PRIMARY KEY,
+                id_rol VARCHAR(10) PRIMARY KEY,
                 nombre VARCHAR(255)
             )""",
 
             # VIDEOS_PARTICIPANTES
             """CREATE TABLE IF NOT EXISTS VIDEOS_PARTICIPANTES (
                 id_video VARCHAR(50),
-                id_participante INT,
-                id_rol INT,
+                id_participante VARCHAR(10),
+                id_rol VARCHAR(10),
                 FOREIGN KEY (id_video) REFERENCES VIDEOS(isan),
                 FOREIGN KEY (id_participante) REFERENCES PARTICIPANTES(id_participante),
                 FOREIGN KEY (id_rol) REFERENCES ROLES(id_rol)

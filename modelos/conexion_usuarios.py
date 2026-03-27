@@ -19,7 +19,7 @@ def menu_usuarios():
         print("3. Editar usuario")
         print("4. Eliminar usuario")
         print("5. Iniciar sesión")
-        print("6.  Volver al menú principal")
+        print("6. Volver al menú principal")
 
         opcion = input("Seleccione una opción: ").strip()
 
@@ -121,13 +121,25 @@ def menu_usuarios():
             contraseña_login = input("Digite su contraseña: ").strip()
 
             usuario = u.loginUsuario(cedula_login, contraseña_login)
+
             if usuario:
-                rol = usuario[3]  # rol_perfil
-                print(f"\n¡Bienvenido {usuario[1]}!")
+                cedula = usuario[0]
+                nombre = usuario[1]
+                rol = usuario[2]
+                puntos = usuario[3] if usuario[3] else 0
+                compras = usuario[4]
+                alquileres = usuario[5]
+
+                print(f"\n¡Bienvenido {nombre}!")
+
                 if rol == "Cliente":
                     saldo = d.obtenerSaldo(cedula_login)
-                    puntos = d.obtenerPuntos(cedula_login)
-                    print(f"Saldo: {saldo}, Puntos: {puntos}, Rol: {rol}")
+
+                    print(f"Saldo: {saldo}")
+                    print(f"Puntos: {puntos}")
+                    print(f"Compras: {compras}")
+                    print(f"Alquileres: {alquileres}")
+                    print(f"Rol: {rol}")
                 else:
                     print(f"Rol: {rol}")
             else:

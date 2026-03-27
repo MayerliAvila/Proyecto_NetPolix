@@ -5,6 +5,8 @@ from modelos.conexion_clasificacion import menu_clasificaciones
 from modelos.conexion_video import menu_videos
 from modelos.conexion_categoria import menu_categorias
 from modelos.conexion_idiomas import menu_idiomas
+from modelos.conexion_serie import menu_series
+
 
 
 # 🔹 SUBMENÚ BASE DE DATOS
@@ -35,7 +37,8 @@ def menu_catalogo():
         print("2. Videos")
         print("3. Categorías")
         print("4. Idiomas")
-        print("5. Volver")
+        print("5. Series")
+        print("6. Volver")
 
         opcion = input("Seleccione una opción: ").strip()
 
@@ -48,6 +51,8 @@ def menu_catalogo():
         elif opcion == "4":
             menu_idiomas()
         elif opcion == "5":
+            menu_series()
+        elif opcion == "6":
             break
         else:
             print("❌ Opción inválida")
@@ -62,8 +67,8 @@ def menu():
         print("1. Sistema BD")
         print("2. Módulo Cliente")
         print("3. Módulo Interacciones")
-        print("4. Catálogo de Contenido")
-        print("5. Ventas / Carrito")
+        print("4. Módulo Catálogo de Contenido")
+        print("5. Módulo Ventas / Carrito")
         print("6. Salir")
 
         opcion = input("Seleccione una opción: ").strip()

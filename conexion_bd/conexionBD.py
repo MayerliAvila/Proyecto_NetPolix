@@ -2,13 +2,15 @@ import mysql.connector
 
 def obtener_conexion():
     return mysql.connector.connect(
-        host="pwwc1p.h.filess.io",
-        database="NetPolix_elephantso",
-        user="NetPolix_elephantso",
-        password="ea97d83cb2228d0d2d4977161b9171e8fdc73b31",
-        port=3307
+        host="o31fli.h.filess.io",
+        database="Plataforma_NetPolix_twentythey",
+        port=3307,
+        user="Plataforma_NetPolix_twentythey",
+        password="82432f03fff6540ac3fbb34b8bd09aadccaabfed"
     )
+
 def probar_conexion():
+    conexion = None
     try:
         conexion = obtener_conexion()
         if conexion.is_connected():
@@ -17,5 +19,5 @@ def probar_conexion():
     except Exception as e:
         print("❌ Error en conexión:", e)
     finally:
-        if conexion.is_connected():
+        if conexion and conexion.is_connected():
             conexion.close()

@@ -60,13 +60,3 @@ def eliminarIdioma(id_idioma):
     finally:
         conn.close()
 
-def mostrarSoloID_Idioma():
-    conn = obtener_conexion()
-    c = conn.cursor()
-    query = "SELECT id_idioma FROM IDIOMAS"
-    c.execute(query)
-    idiomas = c.fetchall()
-    print("\n=== ID DE LOS IDIOMAS ===")
-    for idioma in idiomas:
-        print(idioma[0])
-    conn.close()

@@ -96,13 +96,32 @@ def eliminarUsuario(cedula):
 
 def loginUsuario(cedula, contraseña):
     """
-    Retorna el usuario si la cédula y contraseña coinciden, None si no existe.
+    Retorna datos del usuario junto con puntos, compras y alquileres.
     """
     conn = obtener_conexion()
     c = conn.cursor()
-    query = "SELECT * FROM USUARIOS WHERE cedula = %s AND contraseña = %s"
+
+    query = """
+    SELECT 
+        u.cedula,
+        u.nombre,
+        u.rol_perfil,
+        dc.puntos,
+        COALESCE(SUM(CASE WHEN od.tipo_transaccion = 'compra' THEN 1 ELSE 0 END), 0) AS compras,
+        COALESCE(SUM(CASE WHEN od.tipo_transaccion = 'alquiler' THEN 1 ELSE 0 END), 0) AS alquileres
+    FROM USUARIOS u
+    LEFT JOIN DETALLES_CLIENTES dc 
+        ON u.cedula = dc.cedula_usuario
+    LEFT JOIN ORDENES o 
+        ON u.cedula = o.id_usuario
+    LEFT JOIN ORDENES_DETALLES od 
+        ON o.id_orden = od.id_orden
+    WHERE u.cedula = %s AND u.contraseña = %s
+    GROUP BY u.cedula, u.nombre, u.rol_perfil, dc.puntos
+    """
+
     c.execute(query, (cedula, contraseña))
     usuario = c.fetchone()
     conn.close()
-    return usuario
 
+    return usuario

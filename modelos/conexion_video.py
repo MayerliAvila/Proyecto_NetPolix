@@ -68,6 +68,7 @@ def menu_videos():
             v.eliminarVideo(ISAN)
         elif opcion == "5":
             nombre = input("Digite el nombre del video a buscar: ").strip()
+            print("\n ISAN | Titulo_original | año_produccion | duracion_min | tipo_clasificacion | serie")
             v.buscarVideoPorNombre(nombre)
         elif opcion == "6":
             print("Saliendo del menú de videos...")

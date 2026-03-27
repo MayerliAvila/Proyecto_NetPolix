@@ -5,7 +5,7 @@ from datetime import datetime
 # Agregar la carpeta DAO al path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'DAO')))
 
-import idiomasDAO as i
+import IdiomasDAO as i
 import VideosDAO as v
 import Videos_idiomasDAO as vi
 
@@ -47,7 +47,7 @@ def menu_idiomas():
             id_video = input("Digite el ISAN del video a vincular: ").strip()
 
             print("\nIdiomas disponibles")
-            i.mostrarSoloID_Idioma()
+            i.filfindAllIdioma()
             id_idioma = input("Digite el ID del idioma: ").strip()
 
             print("\nTipos disponibles:")
