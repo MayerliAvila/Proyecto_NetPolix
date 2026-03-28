@@ -12,7 +12,7 @@ def menu_videos():
     
     while True:
         print("\n====MENÚ VIDEOS ===")
-        print("1. Mostrar videos")
+        print("1. Mostrar Catalogo de videos")
         print("2. Crear video")
         print("3. Editar video")
         print("4. Eliminar video")
